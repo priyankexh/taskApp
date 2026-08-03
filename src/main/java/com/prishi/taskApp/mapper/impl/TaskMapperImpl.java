@@ -1,8 +1,10 @@
 package com.prishi.taskApp.mapper.impl;
 
 import com.prishi.taskApp.domain.CreateTaskRequest;
+import com.prishi.taskApp.domain.UpdateTaskRequest;
 import com.prishi.taskApp.domain.dto.CreateTaskRequestDto;
 import com.prishi.taskApp.domain.dto.TaskDto;
+import com.prishi.taskApp.domain.dto.UpdateTaskRequestDto;
 import com.prishi.taskApp.domain.entity.Task;
 import com.prishi.taskApp.mapper.TaskMapper;
 import org.springframework.stereotype.Component;
@@ -15,6 +17,17 @@ public class TaskMapperImpl implements TaskMapper {
                 dto.title(),
                 dto.description(),
                 dto.dueDate(),
+                dto.priority()
+        );
+    }
+
+    @Override
+    public UpdateTaskRequest fromDto(UpdateTaskRequestDto dto) {
+        return new UpdateTaskRequest(
+                dto.title(),
+                dto.description(),
+                dto.dueDate(),
+                dto.status(),
                 dto.priority()
         );
     }
